@@ -1,5 +1,5 @@
 const logger = require('./logger')
-//const { response } = require('express')
+const { response } = require('express')
 
 const requestLogger = (request, response, next) => {
   logger.info('---')
@@ -37,8 +37,7 @@ const tokenExtractor = (request, response, next) => {
 
   if (authorization && authorization.toLowerCase().startsWith('bearer')) {
     request.token = authorization.substring(7)
-  }
-
+  } 
   next()
 }
 
